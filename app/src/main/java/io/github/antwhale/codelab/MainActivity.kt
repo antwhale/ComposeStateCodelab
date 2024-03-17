@@ -146,7 +146,7 @@ fun StatefulCounter(modifier: Modifier = Modifier) {
 //}
 
 @Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -> Unit,onClose: () -> Unit) {
+fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier, onCheckedChange: (Boolean) -> Unit, onClose: () -> Unit) {
     var checkedState by rememberSaveable { mutableStateOf(false) }
 
     WellnessTaskItem(
@@ -200,6 +200,8 @@ fun GreetingPreview() {
     }
 }
 
-data class WellnessTask(val id: Int, val label: String, var checked: Boolean = false)
+class WellnessTask(val id: Int, val label: String, initialChecked: Boolean = false) {
+    var checked by mutableStateOf(initialChecked)
+}
 
 
